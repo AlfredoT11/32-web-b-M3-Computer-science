@@ -56,6 +56,23 @@ class ListaEnlazada{
         return null;
     }
 
+    eliminar(idUsuario){
+        
+        // Este es el caso donde la cabeza es el elemento a eliminar.
+        if(this.cabeza.valor.id == idUsuario){
+            this.cabeza = this.cabeza.siguiente;
+        }
+        
+        let nodoAux = this.cabeza;    
+        while(nodoAux.siguiente != null){ // Verificamos que no estemos en el final de la lista enlazada.
+            if(nodoAux.siguiente.valor.id == idUsuario){
+                nodoAux.siguiente = nodoAux.siguiente.siguiente;
+                return;
+            }
+            nodoAux = nodoAux.siguiente; // Estamos avanzando en la lista enlazada.
+        }
+    }
+
 }
 
 let persona1 = new Persona(1, 'Juan');
@@ -85,6 +102,21 @@ if(valorEncontrado != null){
 }else{
     console.log(`No existe una persona con el id ${idABuscar}`);
 }
+
+console.log('Lista personas');
+listaPersonas.mostrarTodos();
+listaPersonas.eliminar(5);
+
+console.log('Lista personas');
+listaPersonas.mostrarTodos();
+listaPersonas.eliminar(15);
+
+console.log('Lista personas');
+listaPersonas.mostrarTodos();
+listaPersonas.eliminar(32);
+
+console.log('Lista personas');
+listaPersonas.mostrarTodos();
 
 
 

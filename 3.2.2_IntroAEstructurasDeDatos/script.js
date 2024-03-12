@@ -217,3 +217,36 @@ console.log(`La última persona en ser atendida será : ${colaDeTortillas.mostra
 
 
 */
+
+// Ejercicio colas
+
+console.log("Ejercicio de filtrado de tickets");
+
+let colaEvento = [
+    { user: "User1", ticket:true },
+    { user: "User2", ticket:true },
+    { user: "User3", ticket:false },
+    { user: "User4", ticket:true },
+    { user: "User5", ticket:false },
+    { user: "User6", ticket:false },
+    { user: "User7", ticket:true },
+    { user: "User8", ticket:true },
+    { user: "User9", ticket:true },
+    { user: "User10", ticket:false },
+    { user: "User11", ticket:true },
+]
+
+let colaPersonasConBoletoValido = new Cola();
+
+for(let i = 0; i < colaEvento.length; i++){
+    if(colaEvento[i].ticket){
+        colaPersonasConBoletoValido.agregarElemento(colaEvento[i]);
+    }
+}
+
+
+while(colaPersonasConBoletoValido.mostrarPrimerElemento() != null){
+    console.log(colaPersonasConBoletoValido.mostrarPrimerElemento().user);
+    colaPersonasConBoletoValido.eliminarElemento();
+}
+
